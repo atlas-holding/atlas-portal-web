@@ -1,6 +1,6 @@
 const http = require('http');
 const port = process.env.PORT || 3000;
-const SERVICE = '${{ values.name }}';
+const SERVICE = 'atlas-portal-web';
 const ENV = process.env.ENV || 'dev';
 const VERSION = process.env.VERSION || 'latest';
 

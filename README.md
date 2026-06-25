@@ -1,6 +1,6 @@
-# ${{ values.name }}
+# atlas-portal-web
 
-${{ values.description }}
+atlas-portal-web service
 
 ## Stack
 - Langage : ${{ values.language }}
@@ -11,9 +11,9 @@ ${{ values.description }}
 ```bash
 # Cloner le repo
 git clone <repo-url>
-cd ${{ values.name }}
+cd atlas-portal-web
 
 # Lancer en local
-docker build -t ${{ values.name }} .
-docker run -p 8080:8080 ${{ values.name }}
+docker build -t atlas-portal-web .
+docker run -p 8080:8080 atlas-portal-web
 ```

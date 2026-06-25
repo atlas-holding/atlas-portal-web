@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ${{ values.name }}
-  namespace: ${{ values.name }}-dev
+  name: atlas-portal-web
+  namespace: atlas-portal-web-dev
   labels:
-    app: ${{ values.name }}
+    app: atlas-portal-web
     dxp.io/managed: "true"
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ${{ values.name }}
+      app: atlas-portal-web
   template:
     metadata:
       labels:
-        app: ${{ values.name }}
-        backstage.io/kubernetes-id: ${{ values.name }}
+        app: atlas-portal-web
+        backstage.io/kubernetes-id: atlas-portal-web
     spec:
       nodeSelector:
         role: workload
@@ -25,8 +25,8 @@ spec:
         value: workload
         effect: NoSchedule
       containers:
-      - name: ${{ values.name }}
-        image: harbor.dxp/dxp/${{ values.name }}:latest
+      - name: atlas-portal-web
+        image: harbor.harbor.svc.cluster.local/dxp/atlas-portal-web:cce2862
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3000
@@ -47,11 +47,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: ${{ values.name }}
-  namespace: ${{ values.name }}-dev
+  name: atlas-portal-web
+  namespace: atlas-portal-web-dev
 spec:
   selector:
-    app: ${{ values.name }}
+    app: atlas-portal-web
   ports:
   - port: 80
     targetPort: 3000

@@ -1,7 +1,7 @@
 {
-  "name": "${{ values.name }}",
+  "name": "atlas-portal-web",
   "version": "1.0.0",
-  "description": "${{ values.description }}",
+  "description": "atlas-portal-web service",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
